@@ -1,0 +1,46 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<p>
+  {{title | character}}
+</p>
+
+<!--Input and output decorator start.-->
+<div style="text-align:center">
+ <app-input-decorator [personalName] = "personalInfo.name" [designation] = "personalInfo.designation"
+  [place] ="personalInfo.place" [age] = "personalInfo.age"></app-input-decorator>
+</div>
+<div style="text-align:center">
+  <app-output-decorator (information) = "getEmpDetails($event)"></app-output-decorator>
+ </div>
+ <div>
+  {{empDetails | json}}
+ </div>
+<!--Input and output decorator End.-->
+<!--Conditions start.-->
+<app-if-condition></app-if-condition>
+<app-switch-condition></app-switch-condition>
+<!--Conditions End.-->
+<!--template Driven form start.-->
+<app-template-driven></app-template-driven>
+<!--template Driven form End.-->
+<!--Model Driven Start -->
+<p>Modal driven forms</p>
+<form [formGroup] = "myForm" (ngSubmit) = "save()">
+  First Name <input type="text" formControlName="fname"><br>
+  Last Name <input type="text" formControlName="lname"><br>
+  <button type="submit">submit</button>
+</form>
+<app-model-driven-one></app-model-driven-one>
+<!--Model Driven End -->
+
+<!-- Angular Routing Start -->
+Routing Angular
+
+<ul>
+	<li><a routerLink="/Home">Home</a></li>
+	<li><a routerLink="/SignIn">SignIn</a></li>
+	<li><a routerLink="/ContactUs">Contact Us</a></li>
+	<li><a routerLink="/Feedback">Feedback</a></li>
+	<li><a [routerLink] ="['Product','2001']">Product Information</a></li>
+</ul>
+<router-outlet></router-outlet>
+<!-- Angular Routing End -->
